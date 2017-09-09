@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using Graphs.Undirected.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {
     internal class ScannedGraphResult<TVertex, TEdge> : IScannedGraphResult<TVertex, TEdge>
         where TEdge : IUndirectedEdge<TVertex>
+        where TVertex : IEquatable<TVertex>
     {
         public TVertex SourceVertex { get; }
         public HashSet<TVertex> MarkedVertices { get; }

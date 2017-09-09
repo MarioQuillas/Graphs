@@ -41,12 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BfsScanner.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Interfaces\IScannedGraphResult.cs" />
-    <Compile Include="Interfaces\IScannerGraphAlgorithm.cs" />
-    <Compile Include="Interfaces\IScannerResultfactory.cs" />
-    <Compile Include="Interfaces\IUndirectedEdge.cs" />
-    <Compile Include="Interfaces\IUndirectedGraph.cs" />
+    <Compile Include="DfsScanner.cs" />
+    <Compile Include="Visitors\Abstractions\IGraphVisitor.cs" />
+    <Compile Include="Abstractions\IScannedGraphResult.cs" />
+    <Compile Include="Abstractions\IScannerGraphAlgorithm.cs" />
+    <Compile Include="Abstractions\IScannerResultfactory.cs" />
+    <Compile Include="Abstractions\IUndirectedEdge.cs" />
+    <Compile Include="Abstractions\IUndirectedGraph.cs" />
     <Compile Include="PathStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScannedGraphResult.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="ShortestPathFinder.cs" />
     <Compile Include="SimplePath.cs" />
     <Compile Include="VertexEdge.cs" />
+    <Compile Include="Visitors\BfsVisitor.cs" />
+    <Compile Include="Visitors\DfsVisitor.cs" />
     <Compile Include="WeightedBidrectionalEdge.cs" />
     <Compile Include="WeightedDirectionalEdge.cs" />
   </ItemGroup>

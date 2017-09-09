@@ -1,5 +1,5 @@
 ﻿using System;
-using Graphs.Undirected.Interfaces;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {
@@ -16,6 +16,7 @@ namespace Graphs.Undirected
 
         public bool IsConnected(TVertex targetVertex) => this.scannedGraphResult.MarkedVertices.Contains(targetVertex);
 
+        //TODO : better design should be to return a Maybe of SimplePath
         public SimplePath<TVertex, TEdge> Path(TVertex targetVertex)
         {
             var startingVertex = this.scannedGraphResult.SourceVertex;

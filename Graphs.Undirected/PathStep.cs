@@ -1,8 +1,11 @@
-﻿using Graphs.Undirected.Interfaces;
+﻿using System;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {
-    public class PathStep<TVertex, TEdge> where TEdge : IUndirectedEdge<TVertex>
+    public class PathStep<TVertex, TEdge> 
+        where TEdge : IUndirectedEdge<TVertex>
+        where TVertex : IEquatable<TVertex>
     {
         public TVertex StartingVertex { get; }
         public TVertex EndingVertex { get; }

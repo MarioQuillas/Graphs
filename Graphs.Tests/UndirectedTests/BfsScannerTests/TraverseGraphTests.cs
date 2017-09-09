@@ -1,4 +1,4 @@
-﻿namespace Graphs.Tests.BfsScannerTests
+﻿namespace Graphs.Tests.UndirectedTests.BfsScannerTests
 {
     public class TraverseGraphTests
     {

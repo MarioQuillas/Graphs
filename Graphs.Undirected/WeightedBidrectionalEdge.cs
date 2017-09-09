@@ -1,5 +1,5 @@
 ﻿using System;
-using Graphs.Undirected.Interfaces;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {

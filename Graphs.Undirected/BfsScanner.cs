@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Graphs.Undirected.Interfaces;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {
-    public class BfsScanner<TVertex, TEdge> : IScannerGraphAlgorithm<TVertex, TEdge> where TEdge : IUndirectedEdge<TVertex>
+    public class BfsScanner<TVertex, TEdge> : IScannerGraphAlgorithm<TVertex, TEdge>
+        where TEdge : IUndirectedEdge<TVertex>
+        where TVertex : IEquatable<TVertex>
     {
         private readonly IScannerResultfactory<TVertex, TEdge> scannerResultfactory;
 

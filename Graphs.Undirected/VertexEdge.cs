@@ -1,9 +1,11 @@
 ﻿using System;
-using Graphs.Undirected.Interfaces;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {
-    internal class VertexEdge<TVertex, TEdge> where TEdge : IUndirectedEdge<TVertex>
+    internal class VertexEdge<TVertex, TEdge> 
+        where TEdge : IUndirectedEdge<TVertex>
+        where TVertex : IEquatable<TVertex>
     {
         public TVertex Source { get; }
         public TEdge Edge { get; }

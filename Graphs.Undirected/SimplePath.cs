@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Graphs.Undirected.Interfaces;
+using Graphs.Undirected.Abstractions;
 
 namespace Graphs.Undirected
 {
-    public class SimplePath<TVertex, TEdge> where TEdge : IUndirectedEdge<TVertex>
+    public class SimplePath<TVertex, TEdge> 
+        where TEdge : IUndirectedEdge<TVertex>
+        where TVertex : IEquatable<TVertex>
     {
         public TVertex StartingVertex { get; }
         public TVertex EndingVertex { get; }
@@ -34,7 +36,8 @@ namespace Graphs.Undirected
             return new SimplePath<TVertex, TEdge>(startingVertex, targetVertex);
         }
 
-        //TODO : this code is not completely safe. Some assumptions are done. Maybe a builder will be a better idea to keep a consistant path at all times
+        //TODO: This code is not completely safe. Some assumptions are done. 
+        //TODO: Maybe a builder will be a better idea to keep a consistant path at all times
         public void AddNextContinuousEdgeFromCurrentEndingVertex(TEdge edge)
         {
             if (!edge.ContainVertex(this.currentEndingVertex)) throw new InvalidOperationException("An invariant in the construction of the SimplePath was broken.");

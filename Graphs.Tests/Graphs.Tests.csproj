@@ -58,11 +58,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="UndirectedTests\BfsScannerTests\TraverseGraphTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UndirectedTests\DfsScannerTests\TraverseGraphTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Graphs.Directed\Graphs.Directed.csproj">
+      <Project>{75955779-ed53-495c-8439-840d96795853}</Project>
+      <Name>Graphs.Directed</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphs.Undirected\Graphs.Undirected.csproj">
+      <Project>{a140bdd3-c812-4fc0-9cb2-b7943195034d}</Project>
+      <Name>Graphs.Undirected</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
