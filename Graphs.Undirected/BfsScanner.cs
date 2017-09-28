@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Graphs.Undirected.Abstractions;
-
-namespace Graphs.Undirected
+﻿namespace Graphs.Undirected
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Graphs.Undirected.Abstractions;
+
     public class BfsScanner<TVertex, TEdge> : IScannerGraphAlgorithm<TVertex, TEdge>
-        where TEdge : IUndirectedEdge<TVertex>
-        where TVertex : IEquatable<TVertex>
+        where TEdge : IUndirectedEdge<TVertex> where TVertex : IEquatable<TVertex>
     {
         private readonly IScannerResultfactory<TVertex, TEdge> scannerResultfactory;
 
@@ -16,11 +16,13 @@ namespace Graphs.Undirected
             this.scannerResultfactory = scannerResultfactory;
         }
 
-        public IScannedGraphResult<TVertex, TEdge> TraverseGraph(IUndirectedGraph<TVertex, TEdge> undirectedGraph, TVertex sourceVertex)
+        public IScannedGraphResult<TVertex, TEdge> TraverseGraph(
+            IUndirectedGraph<TVertex, TEdge> undirectedGraph,
+            TVertex sourceVertex)
         {
             var markedVertices = new HashSet<TVertex>();
-            //var vertexToParentVertex = new Dictionary<TVertex, TVertex>();
 
+            // var vertexToParentVertex = new Dictionary<TVertex, TVertex>();
             var vertexToParentEdge = new Dictionary<TVertex, TEdge>();
 
             var queue = new Queue<TVertex>();
@@ -37,7 +39,7 @@ namespace Graphs.Undirected
 
                     if (!markedVertices.Add(vertex)) continue;
 
-                    //vertexToParentVertex[vertex] = currentVertex;
+                    // vertexToParentVertex[vertex] = currentVertex;
                     vertexToParentEdge[vertex] = edge;
 
                     queue.Enqueue(vertex);

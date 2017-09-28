@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Graphs.Undirected.Abstractions
+﻿namespace Graphs.Undirected.Abstractions
 {
+    using System;
+    using System.Collections.Generic;
+
     public interface IScannerResultfactory<TVertex, TEdge>
-        where TEdge : IUndirectedEdge<TVertex>
-        where TVertex : IEquatable<TVertex>
+        where TEdge : IUndirectedEdge<TVertex> where TVertex : IEquatable<TVertex>
     {
-        IScannedGraphResult<TVertex, TEdge> CreateResult(TVertex sourceVertex, HashSet<TVertex> markedVertices,
+        IScannedGraphResult<TVertex, TEdge> CreateResult(
+            TVertex sourceVertex,
+            HashSet<TVertex> markedVertices,
             Dictionary<TVertex, TEdge> vertexToParentEdge);
     }
 }

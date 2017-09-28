@@ -1,11 +1,12 @@
-﻿using System;
-
-namespace Graphs.Undirected.Abstractions
+﻿namespace Graphs.Undirected.Abstractions
 {
-    public interface IScannerGraphAlgorithm<TVertex, TEdge> 
-        where TEdge : IUndirectedEdge<TVertex>
-        where TVertex : IEquatable<TVertex>
+    using System;
+
+    public interface IScannerGraphAlgorithm<TVertex, TEdge>
+        where TEdge : IUndirectedEdge<TVertex> where TVertex : IEquatable<TVertex>
     {
-        IScannedGraphResult<TVertex, TEdge> TraverseGraph(IUndirectedGraph<TVertex, TEdge> undirectedGraph, TVertex sourceVertex);
+        IScannedGraphResult<TVertex, TEdge> TraverseGraph(
+            IUndirectedGraph<TVertex, TEdge> undirectedGraph,
+            TVertex sourceVertex);
     }
 }

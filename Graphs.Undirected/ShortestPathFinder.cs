@@ -1,11 +1,11 @@
-﻿using System;
-using Graphs.Undirected.Abstractions;
-
-namespace Graphs.Undirected
+﻿namespace Graphs.Undirected
 {
+    using System;
+
+    using Graphs.Undirected.Abstractions;
+
     public class ShortestPathFinder<TVertex, TEdge>
-        where TEdge : IUndirectedEdge<TVertex>
-        where TVertex : IEquatable<TVertex>
+        where TEdge : IUndirectedEdge<TVertex> where TVertex : IEquatable<TVertex>
     {
         private readonly IScannedGraphResult<TVertex, TEdge> scannedGraphResult;
 
@@ -16,7 +16,7 @@ namespace Graphs.Undirected
 
         public bool IsConnected(TVertex targetVertex) => this.scannedGraphResult.MarkedVertices.Contains(targetVertex);
 
-        //TODO : better design should be to return a Maybe of SimplePath
+        // TODO : better design should be to return a Maybe of SimplePath
         public SimplePath<TVertex, TEdge> Path(TVertex targetVertex)
         {
             var startingVertex = this.scannedGraphResult.SourceVertex;
@@ -25,8 +25,7 @@ namespace Graphs.Undirected
 
             if (!this.IsConnected(targetVertex)) return path;
 
-            //var path = new Stack<VertexEdge<TVertex, TEdge>>();
-
+            // var path = new Stack<VertexEdge<TVertex, TEdge>>();
             var currentVertexInPath = targetVertex;
 
             while (!currentVertexInPath.Equals(startingVertex))
@@ -34,10 +33,11 @@ namespace Graphs.Undirected
                 var edge = this.scannedGraphResult.VertexToParentEdge[currentVertexInPath];
                 path.AddNextContinuousEdgeFromCurrentEndingVertex(edge);
                 currentVertexInPath = edge.GetOtherVertex(currentVertexInPath);
-                //currentVertexInPath = this.scannedGraphResult.VertexToParentVertex[currentVertexInPath];
-            }
-            //path.Push(this.scannedGraphResult.SourceVertex);
 
+                // currentVertexInPath = this.scannedGraphResult.VertexToParentVertex[currentVertexInPath];
+            }
+
+            // path.Push(this.scannedGraphResult.SourceVertex);
             return path;
         }
     }
