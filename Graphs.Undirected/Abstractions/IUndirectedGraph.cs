@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    using Graphs.Undirected.Visitors.Abstractions;
+    using Visitors.Abstractions;
 
     public interface IUndirectedGraph<TVertex, TEdge>
         where TEdge : IUndirectedEdge<TVertex> where TVertex : IEquatable<TVertex>

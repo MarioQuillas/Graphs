@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    using Graphs.Undirected.Abstractions;
+    using Abstractions;
 
     public class DfsScanner<TVertex, TEdge> : IScannerGraphAlgorithm<TVertex, TEdge>
         where TEdge : IUndirectedEdge<TVertex> where TVertex : IEquatable<TVertex>
